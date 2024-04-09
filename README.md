@@ -17,7 +17,7 @@ Le travail a été réalisé sur les deux fronts :
 
 ## Outils Utilisés
 
-- **Figma** : Accès aux maquettes [Voir les maquettes](lien)
+- **Figma** : Accès aux maquettes
 - **Visual Studio Code** : Utilisé pour le développement.
 - **GitHub** : Gestion de version du projet.
 
