@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sophie Bluel - Architecte d'intérieur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <script src="./scripts/global.js" defer></script>
+    <script src="./scripts/homePage.js" defer></script>
+    <script src="./scripts/modalDeleteProject.js" defer></script>
+    <script src="./scripts/modalAddProject.js" defer></script>
+  </head>
+  <body>
+    <!----------Black-bar---------->
+    <div class="black-bar" id="black-bar">
+      <a href="#">
+        <i class="fa-regular fa-pen-to-square"></i>
+        <p>Mode édition</p></a
+      >
+    </div>
+    <header>
+      <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+      <nav>
+        <ul>
+          <li><a href="#projets" class="nav-button">projets</a></li>
+          <li><a href="#contact" class="nav-button">contact</a></li>
+          <li id="login-button">
+            <a href="login.html" class="nav-button">login</a>
+          </li>
+          <li id="logout-button"><a href="#" class="nav-button">logout</a></li>
+          <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="introduction">
+        <figure>
+          <img src="./assets/images/sophie-bluel.png" alt="" />
+        </figure>
+        <article>
+          <h2>Designer d'espace</h2>
+          <p>
+            Je raconte votre histoire, je valorise vos idées. Je vous accompagne
+            de la conception à la livraison finale du chantier.
+          </p>
+          <p>
+            Chaque projet sera étudié en commun, de façon à mettre en valeur les
+            volumes, les matières et les couleurs dans le respect de l’esprit
+            des lieux et le choix adapté des matériaux. Le suivi du chantier
+            sera assuré dans le souci du détail, le respect du planning et du
+            budget.
+          </p>
+          <p>
+            En cas de besoin, une équipe pluridisciplinaire peut-être constituée
+            : architecte DPLG, décorateur(trice)
+          </p>
+        </article>
+      </section>
+      <section id="portfolio">
+        <div class="title-modal-wrapper">
+          <h2 id="projets">Mes Projets</h2>
+
+          <!----------Bouton ouverture de la modal---------->
+          <div class="modal-style" id="js-button-modal">
+            <a href="#modal" class="modal-button"
+              ><i class="fa-regular fa-pen-to-square"></i>modifier</a
+            >
+          </div>
+        </div>
+        <!----------Container des modal---------->
+        <aside
+          class="modal"
+          id="modal"
+          aria-hidden="true"
+          role="dialog"
+          aria-modal="false"
+          style="display: none"
+        >
+          <!----------Modal Delete Project---------->
+          <div class="modal-wrapper modal-stop" id="modal-wrapper">
+            <button
+              data-target="#modal"
+              class="button-close-modal-1"
+              id="button-close-modal-1"
+            >
+              <i data-target="#modal" class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="modal-gallery-title">Galerie photo</h3>
+            <div class="modal-gallery" id="modal-gallery"></div>
+            <button class="filter-button" id="add-project-button">
+              Ajouter une photo
+            </button>
+          </div>
+        </aside>
+
+        <!----------Modal Upload Project---------->
+        <aside
+          class="modal"
+          id="modal2"
+          aria-hidden="true"
+          role="dialog"
+          aria-modal="false"
+          style="display: none"
+        >
+          <div class="modal-upload-project" id="modal-upload-project-container">
+            <!-- Bouton : <- back -->
+            <button class="back-button" id="back-button">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button
+              data-target="#modal"
+              class="button-close-modal-2"
+              id="button-close-modal-2"
+            >
+              <i data-target="#modal" class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="modal-gallery-title">Ajout Photo</h3>
+            <!-- container pour upload une photo -->
+            <form id="form-upload" action="" method="POST">
+              <div class="drop-project-container" id="drop-project-container">
+                <i class="fa-regular fa-image"></i>
+
+                <input
+                  type="file"
+                  name="project-picture"
+                  id="project-picture-input"
+                  style="display: none"
+                />
+                <label
+                  for="project-picture-input"
+                  class="button-project-file-upload"
+                >
+                  + Ajouter une photo
+                </label>
+                <p>jpg,png : 4mo max</p>
+              </div>
+
+              <label for="picture-title">Titre</label>
+              <input type="text" name="picture-title" id="picture-title" />
+
+              <label for="modal-photo-category">Catégorie</label>
+              <select name="modal-photo-category" id="modal-photo-category">
+                <option value="-1" selected></option>
+              </select>
+              <p class="upload-message-error" id="upload-message-error"></p>
+              <!-- Bouton Valider, afin d'upload une photo -->
+              <div class="confirm-button-container">
+                <input
+                  id="confirm-button"
+                  type="submit"
+                  disabled
+                  name="submit-button"
+                  value="Valider"
+                />
+              </div>
+            </form>
+          </div>
+        </aside>
+
+        <!----------Boutons filtres---------->
+        <div id="filters" class="filters">
+          <button class="filter-button" id="filter-tous">Tous</button>
+          <button class="filter-button" id="filter-objets">Objets</button>
+          <button class="filter-button" id="filter-appartements">
+            Appartements
+          </button>
+          <button class="filter-button" id="filter-hotel">
+            Hôtels & restaurants
+          </button>
+        </div>
+
+        <div class="gallery">
+          <!----------supression des balises figure afin qu'elles soient déployées en JS---------->
+        </div>
+      </section>
+      <section id="contact">
+        <h2 id="contact">Contact</h2>
+        <p>Vous avez un projet ? Discutons-en !</p>
+        <form action="#" method="post">
+          <label for="name">Nom</label>
+          <input type="text" name="name" id="name" autocomplete="on" />
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" autocomplete="on" />
+          <label for="message">Message</label>
+          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+          <input type="submit" value="Envoyer" />
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <nav>
+        <ul>
+          <li>Mentions Légales</li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
+é
