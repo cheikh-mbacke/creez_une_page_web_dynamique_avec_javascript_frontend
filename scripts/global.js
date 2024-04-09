@@ -1,6 +1,5 @@
 // Stocke de l'URL Works de l'API sur une constante
-const API_WORKS =
-  "https://creez-une-page-web-dynamique-avec.onrender.com/api/works";
+const API_WORKS = "http://localhost:5678/api/works";
 // Stocke de l'URL Categories de l'API sur une constante
 
 // Gestion de ce qui doit apparaitre sur index.html lorsque admin est log.

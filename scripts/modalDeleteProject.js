@@ -58,9 +58,7 @@ window.addEventListener("keydown", function (e) {
 
 const worksContainer = document.getElementById("modal-gallery");
 
-const reponses = fetch(
-  "https://creez-une-page-web-dynamique-avec.onrender.com/api/works"
-)
+const reponses = fetch("http://localhost:5678/api/works")
   .then((reponse) => reponse.json())
   .then((datas) => {
     datas.forEach((work) => {

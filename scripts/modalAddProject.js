@@ -1,5 +1,4 @@
-const API_CATEGORIES =
-  "https://creez-une-page-web-dynamique-avec.onrender.com/api/categories";
+const API_CATEGORIES = "http://localhost:5678/api/categories";
 
 // Récupération du bouton "Ajouter une photo" présent sur modalDeleteProject"
 const addProjectButton = document.getElementById("add-project-button");

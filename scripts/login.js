@@ -1,6 +1,5 @@
 // Stocke de l'URL de l'API sur une constante
-const API_LOGIN =
-  "https://creez-une-page-web-dynamique-avec.onrender.com/api/users/login";
+const API_LOGIN = "http://localhost:5678/api/users/login";
 // Deux types de message d'erreur
 const INCORRECT_USER =
   "Identifiant ou mot de passe incorrect. Veuillez réessayer.";
